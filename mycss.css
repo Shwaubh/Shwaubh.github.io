@@ -2,7 +2,7 @@
 body
 {
     #background : linear-gradient( #ff9933 ,white,lightgreen) fixed; 
-    background : black;
+    background : rgb(0,0,0);
     background-size:  cover;         
     background-repeat:   no-repeat;
 }
@@ -10,8 +10,8 @@ img
 {
     margin: 0px auto;
     display:block;
-    min-width : 300px;
-    max-width : 400px;
+    min-width : 40%;
+    max-width : 60%;
     width:auto;
     border:2px solid;
     border-radius : 20% 0% 20% 0%;
@@ -26,20 +26,33 @@ div.cen {
     border: 2px solid;
     margin: 0px 16px;
 }
-div.cen h2,h3,b,p,i
+div.cen h2,h3,b,p,i,pre
 {
     color:white;
 }
-div.cenn
-{
-    display :block;
-    min-width : 40%;
-    max-width : 100%;
-    width : 100%;
-    border : 2px solid white;
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
-div.cenn a
-{
-    text-decoration : none;
-    color:white;
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
 }

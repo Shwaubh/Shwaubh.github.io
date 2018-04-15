@@ -1,0 +1,45 @@
+
+body
+{
+    #background : linear-gradient( #ff9933 ,white,lightgreen) fixed; 
+    background : black;
+    background-size:  cover;         
+    background-repeat:   no-repeat;
+}
+img
+{
+    margin: 0px auto;
+    display:block;
+    min-width : 300px;
+    max-width : 400px;
+    width:auto;
+    border:2px solid;
+    border-radius : 20% 0% 20% 0%;
+}
+div.cen {
+    border-radius : 20% 0% 20% 0%;
+    min-width : 20%x;
+    max-width : 60%;
+    width:auto;
+    padding : 0px 16px 0px 16px;
+    height:300px;
+    border: 2px solid;
+    margin: 0px 16px;
+}
+div.cen h2,h3,b,p,i
+{
+    color:white;
+}
+div.cenn
+{
+    display :block;
+    min-width : 40%;
+    max-width : 100%;
+    width : 100%;
+    border : 2px solid white;
+}
+div.cenn a
+{
+    text-decoration : none;
+    color:white;
+}

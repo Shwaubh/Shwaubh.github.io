@@ -56,3 +56,40 @@ li a:hover:not(.active) {
 .active {
     background-color: #4CAF50;
 }
+th
+{
+    text-align:left;
+    color:white;
+    background:#4CAF50;
+}
+td
+{
+    text-align:left;
+    color:black;
+    background:#FFFFFF;
+}
+th,td
+{
+    padding:8px;
+}
+tr
+{
+    
+}
+table
+{
+    border-collapse:collapse;
+    max-width:100%;
+    width:100%;
+}
+b
+{
+    color:white;
+    border:1px solid grey;
+    width : 100%;
+    display : block;
+    padding : 8px;
+    background:#4CAF50;
+    text-decoration:none;
+    font-family:Verdana;
+}

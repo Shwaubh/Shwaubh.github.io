@@ -1,0 +1,66 @@
+span.topName
+{
+	 font-family: "Comic Sans MS", cursive, sans-serif;
+	 color : white;
+	 font-size : 45px;
+}
+button.topMenu
+{
+	color : white;
+	background : transparent;
+	float : right;
+
+}
+body
+{
+	background : url("../img/bg3.jpg");
+}
+.motivate
+{
+	
+	 font-family: "Comic Sans MS", cursive, sans-serif;
+	 color : white;
+	 font-size : 25px;
+	 text-align : center;
+	padding : 60px;
+	margin : 100px auto;
+	background : transparent;
+	
+}
+.footer
+{
+	
+	text-align : center;
+	height : 100px;
+	position : fixed;
+	bottom : 0px;
+	width : 100%;
+	background : #bbbbaa55;
+}
+.aboutouter
+{
+	width : 100%;
+	text-align:center;
+}
+.aboutinner
+{
+		width : 20%;
+		float : right;
+		border-radius : 50px;
+}
+.aboutinnerr
+{
+		width : 75%;
+		float : right ;
+		text-align : center;
+}
+.det{
+	
+	 font-family: "Comic Sans MS", cursive, sans-serif;
+	 color : white;
+	 font-size : 15px;
+	 text-align : center;
+	
+	background : transparent;
+	
+}

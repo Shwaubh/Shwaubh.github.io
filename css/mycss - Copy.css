@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {font-family: "Lato", sans-serif;
+	//background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,0)),url("../img/bg1.jpg");
+	background: #fff;
+		}
+
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33.3333333333333333333333%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+#London {background-color:#f44336;}
+#Paris {background-color:#4CAF50;}
+#Tokyo {background-color:#2196F3;}
+#Oslo {background-color:#FF5722;}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: ##f44336;
+}
+.footer {
+	padding : 30px;
+  width: 100%;
+  background: #f44336;
+  color: white;
+  text-align: center;
+}
+
+.footers {
+	padding : 30px;
+  width: 100%;
+  color: ;
+  text-align: center;
+}
+.aboutimg
+{
+	width : 100px;
+	height : 100px;
+	border-radius : 50px;
+}
+.contacticon
+{
+width : 30px;
+	height : 30px;
+	border-radius : 50px;
+	display : inline;	
+}
+fa {
+	margin : 10px;
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-instagram {
+  background: #55ACEE;
+  color: white;
+}
+.fa-linkedin {
+  background: #55ACEE;
+  color: white;
+}
+.fa-google {
+  background: #55ACEE;
+  color: white;
+}

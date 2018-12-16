@@ -30,7 +30,7 @@ button.active
 .bottom
 {
 	max-height : 400px;
-
+	background : #ffffff99;
 	overflow : scroll;
 }
 .presentation
@@ -41,13 +41,13 @@ button.active
 .presentation a
 {
 	font-family: "Comic Sans MS", cursive, sans-serif;
-	 color : #afa;
+	 color : #111;
 	 font-size : 25px;
 }
 .date
 {
 	font-family: "Comic Sans MS", cursive, sans-serif;
-	 color : white;
+	 color : #010;
 	 font-size : 25px;
 }
 body

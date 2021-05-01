@@ -1,0 +1,9 @@
+body {
+ background: url("../img/bg1.jpg");
+ background-size: stretch;
+}
+
+.op-5
+{
+  opacity: 0.5;
+}

@@ -1,2 +1,2 @@
 # Shwaubh.github.io
-A Blogger and Developer Website with an aim to provide you the best you want..
+I love to build amazing applications and learn amazing technologies

@@ -1,0 +1,231 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #d35400;
+    padding: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Section Styles */
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #d35400;
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: #d35400;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+/* General Timer Container */
+.timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px;
+    background: linear-gradient(135deg, #ff5f6d, #ffc3a0); /* Soft gradient background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Soft shadow for 3D effect */
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Time Unit Styling */
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 12px;
+    color: #333;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Time Unit Hover Effect */
+.time-unit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Time Unit Labels (e.g., Days, Hours, Minutes, Seconds) */
+.time-unit span {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 8px;
+}
+
+/* Responsive Timer Layout */
+@media (max-width: 768px) {
+    .timer {
+        flex-direction: row;
+        width: 90%;
+        padding: 10px;
+    }
+}
+
+/* About Section */
+.about {
+    padding: 50px 0;
+    background-color: #fff;
+    margin-top: 20px;
+    border-top: 2px solid #f1f1f1;
+    border-bottom: 2px solid #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+    clear: both; /* Ensure content is cleared properly */
+}
+
+/* Styling the header of the section */
+.about h2 {
+    font-size: 2.5rem;
+    color: #d35400;
+    margin-bottom: 20px;
+}
+
+/* About image container */
+.about-image {
+    float: right;          /* Floats the image to the right */
+    margin-left: 20px;     /* Adds space between the image and the text */
+    margin-bottom: 20px;   /* Adds space below the image */
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;      /* Limit the size of the image */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the bride and groom names */
+.about p strong {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e74c3c; /* A nice red color for names */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Styling the regular text */
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Animation triggered when the section is in view */
+.about[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+}
+
+.about[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Clearfix for floated image */
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .about-image {
+        float: none;        /* Removes float on small screens */
+        text-align: center; /* Center the image */
+        margin: 0 auto;     /* Center the image horizontally */
+    }
+
+    .about-image img {
+        max-width: 100%;    /* Make sure the image scales down */
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about p {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+}

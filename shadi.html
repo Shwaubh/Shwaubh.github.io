@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding Journey</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/shadistyle.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Our Wedding Journey</h1>
+            <p>Join us in celebrating the start of a lifetime together!</p>
+        </div>
+    </header>
+
+    <section class="about" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2>About Us</h2>
+    
+            <!-- Image of the couple (or any image you'd like) -->
+            <div class="about-image">
+                <img src="img/shadi.JPG" alt="Bride and Groom" />
+            </div>
+    
+            <p><strong>Bride:</strong> Shweta Agrawal</p>
+            <p><strong>Groom:</strong> Saurabh Giri</p>
+            <p>We met at School, and from the moment we laid eyes on each other, we knew our love story would be something special...</p>
+        </div>
+    </section>
+
+    <section class="event" data-aos="fade-up">
+        <div class="container">
+            <h2>Tilak Ceremony</h2>
+            <p><strong>Date:</strong> 4th December, 2024</p>
+            <p><strong>Place:</strong> Near Katesar Post Office, Katesar, Chandauli, 221008  ( Home )</p>
+            <p><strong>Location:</strong> <a href="https://maps.app.goo.gl/gxf1TWDRQ34uVYrB9" target="_blank">View on Google Maps</a></p>
+            <div id="tilak-timer" class="timer">
+                <div id="tilak-days" class="time-unit"></div>
+                <div id="tilak-hours" class="time-unit"></div>
+                <div id="tilak-minutes" class="time-unit"></div>
+                <div id="tilak-seconds" class="time-unit"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="event" data-aos="fade-up" data-aos-delay="200">
+        <div class="container">
+            <h2>Shadi Ceremony</h2>
+            <p><strong>Date:</strong> 9th December, 2024</p>
+            <p><strong>Place:</strong> Sant Vinoba Bangali bhai palace, Ram Nagar Industrial Area, Ram nagar, Tengara 0001Suzabad 0009, Uttar Pradesh 231305 ( Shadi Lawn )</p>
+            <p><strong>Location:</strong> <a href="https://maps.app.goo.gl/MNCc4csCUvL2tZFU8" target="_blank">View on Google Maps</a></p>
+            <div id="shadi-timer" class="timer">
+                <div id="shadi-days" class="time-unit"></div>
+                <div id="shadi-hours" class="time-unit"></div>
+                <div id="shadi-minutes" class="time-unit"></div>
+                <div id="shadi-seconds" class="time-unit"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wedding-details">
+        <div class="container">
+            <h2>Wedding Details</h2>
+            <p>We are thrilled to share that we will be tying the knot on [Date] at [Venue]. We can't wait to celebrate with you!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Come celebrate the beginning of forever as we unite in love and create memories to last a lifetime—your presence will make our day even more special!</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();  // Initialize AOS
+        function updateTimerTilak() {
+        var tilakEventDate = new Date("Dec 4, 2024 00:00:00").getTime();
+        var now = new Date().getTime();
+        var distance = tilakEventDate - now;
+
+        // Calculate time components
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the HTML elements
+        document.getElementById("tilak-days").innerHTML = days + "d";
+        document.getElementById("tilak-hours").innerHTML = hours + "h";
+        document.getElementById("tilak-minutes").innerHTML = minutes + "m";
+        document.getElementById("tilak-seconds").innerHTML = seconds + "s";
+
+        // If the countdown is finished, display a message
+        if (distance < 0) {
+            clearInterval(tilakTimer);
+            document.getElementById("tilak-timer").innerHTML = "The event has started!";
+        }
+    }
+
+    // Countdown Timer for Shadi
+    function updateTimerShadi() {
+        var shadiEventDate = new Date("Dec 9, 2024 00:00:00").getTime();
+        var now = new Date().getTime();
+        var distance = shadiEventDate - now;
+
+        // Calculate time components
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the HTML elements
+        document.getElementById("shadi-days").innerHTML = days + "d";
+        document.getElementById("shadi-hours").innerHTML = hours + "h";
+        document.getElementById("shadi-minutes").innerHTML = minutes + "m";
+        document.getElementById("shadi-seconds").innerHTML = seconds + "s";
+
+        // If the countdown is finished, display a message
+        if (distance < 0) {
+            clearInterval(shadiTimer);
+            document.getElementById("shadi-timer").innerHTML = "The event has started!";
+        }
+    }
+
+    // Update the timers every second
+    var tilakTimer = setInterval(updateTimerTilak, 1000);
+    var shadiTimer = setInterval(updateTimerShadi, 1000);
+    </script>
+</body>
+</html>

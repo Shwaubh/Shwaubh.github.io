@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Task and focus planner with local persistence, filters, and progress tracking.">
+  <title>Task + Focus Planner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container">
+      <a class="brand" href="index.html">Saurabh K. Giri</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="cats.html">Cats</a>
+        <a href="country.html">Countries</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="utility-header container">
+    <h1>Task + Focus Planner</h1>
+    <p class="muted">Plan tasks, set priorities and due dates, and keep your daily focus clear.</p>
+  </header>
+
+  <main class="container section planner-layout">
+    <section class="panel">
+      <h2>Add New Task</h2>
+      <form id="taskForm" class="planner-form">
+        <label for="taskTitle">Task</label>
+        <input id="taskTitle" name="taskTitle" required placeholder="Write a clear task..." maxlength="90">
+
+        <label for="taskDate">Due date</label>
+        <input id="taskDate" name="taskDate" type="date">
+
+        <label for="taskPriority">Priority</label>
+        <select id="taskPriority" name="taskPriority">
+          <option value="high">High</option>
+          <option value="medium" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+
+        <button class="btn btn-primary" type="submit">Add task</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Task Board</h2>
+      <div class="planner-top-row">
+        <div class="utility-actions">
+          <button type="button" class="btn btn-secondary filter-btn active" data-filter="all">All</button>
+          <button type="button" class="btn btn-secondary filter-btn" data-filter="open">Open</button>
+          <button type="button" class="btn btn-secondary filter-btn" data-filter="completed">Completed</button>
+        </div>
+        <p id="plannerStats" class="muted"></p>
+      </div>
+      <div id="taskList" class="list-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Small daily progress compounds into big results.</div>
+  </footer>
+
+  <script src="planner.js"></script>
+</body>
+</html>

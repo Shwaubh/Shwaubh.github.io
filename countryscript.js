@@ -1,59 +1,65 @@
-function shuffleArray(data, numberofelements){
-    let currentIndex = 0;
-    let randomIndex;
-    while (currentIndex < numberofelements) {
+const statusText = document.getElementById("status");
+const countryContainer = document.getElementById("countryContainer");
+const loadButton = document.getElementById("getCountryButton");
 
-      randomIndex = Math.floor( ( Math.random() * data.length-currentIndex) + currentIndex );
-      [data[currentIndex], data[randomIndex]] = [data[randomIndex], data[currentIndex]];
-      currentIndex++;
-  }
-  return data.slice(0, numberofelements);
+function updateStatus(message) {
+  statusText.textContent = message;
 }
 
-testvalue ='';
-$(document).ready(function() {
-    // var API_KEY = 'live_LsLBRZXEDPqzLQqjpjCuwocGsxp4ZMKQ09FuRKF4YohJdWH3SUBYeP0fiuQ7HglR';
-    // Function to fetch random country data
-    getRandomCountry();
-    function getRandomCountry() {
-      var apiUrl = "https://restcountries.com/v3.1/all";
-  
-      $.ajax({
-        url: apiUrl,
-        method: "GET",
-        headers: {
-            // 'x-api-key': API_KEY
-        },
-        success: function(data) {
-          // Clear previous results
-          data = shuffleArray(data, 5);
-          $("#countryContainer").empty();
-  
-          // Loop through each country image data
-          $.each(data, function(index, country) {
-                var imageId = country.flags.png;
-                var countryFact = country.name.official;
-                $("#countryContainer").append(`
-                  <div class="countryInfo">
-                    <img src="${imageId}" alt="Country Image" height='150' width='150'>
-                    <p><strong>Name Official:</strong> ${countryFact}</p>
-                    <p><strong>Name Common:</strong> ${country.name.common}</p>
-                  </div>
-                `); 
-          });
-        },
-        error: function() {
-          $("#countryContainer").html("<p>Failed to fetch country images.</p>");
-        }
-      });
+function getRandomItems(array, count) {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, count);
+}
+
+function createCountryCard(country) {
+  const card = document.createElement("article");
+  card.className = "fact-card";
+
+  const population = typeof country.population === "number"
+    ? country.population.toLocaleString()
+    : "Not available";
+
+  card.innerHTML = `
+    <img src="${country.flags?.png || ""}" alt="Flag of ${country.name?.common || "country"}">
+    <div>
+      <h3>${country.name?.official || "Unknown country"}</h3>
+      <p class="muted"><strong>Common:</strong> ${country.name?.common || "N/A"}</p>
+      <p class="muted"><strong>Region:</strong> ${country.region || "N/A"} | <strong>Capital:</strong> ${(country.capital && country.capital[0]) || "N/A"}</p>
+      <p><strong>Population:</strong> ${population}</p>
+    </div>
+  `;
+
+  return card;
+}
+
+async function getRandomCountries() {
+  loadButton.disabled = true;
+  updateStatus("Loading country facts...");
+  countryContainer.innerHTML = "";
+
+  try {
+    const response = await fetch("https://restcountries.com/v3.1/all");
+    if (!response.ok) {
+      throw new Error("Failed to fetch countries");
     }
-  
-    // Event listener for the button click
-    $("#getCountryButton").click(function() {
-      getRandomCountry();
+
+    const data = await response.json();
+    const randomCountries = getRandomItems(data, 6);
+    randomCountries.forEach((country) => {
+      countryContainer.appendChild(createCountryCard(country));
     });
+    updateStatus("Loaded random countries from around the world.");
+  } catch (error) {
+    updateStatus("Could not load country facts. Please try again.");
+  } finally {
+    loadButton.disabled = false;
+  }
+}
 
-
-
-  });
+loadButton.addEventListener("click", getRandomCountries);
+getRandomCountries();
   

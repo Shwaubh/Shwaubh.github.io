@@ -1,48 +1,75 @@
-testvalue ='';
-$(document).ready(function() {
-    var API_KEY = 'live_LsLBRZXEDPqzLQqjpjCuwocGsxp4ZMKQ09FuRKF4YohJdWH3SUBYeP0fiuQ7HglR';
-    // Function to fetch random cat data
-    getRandomCats();
-    function getRandomCats() {
-      var apiUrl = "https://api.thecatapi.com/v1/breeds?limit=3&page="+ Math.floor(Math.random() * 20);
-  
-      $.ajax({
-        url: apiUrl,
-        method: "GET",
-        headers: {
-            'x-api-key': API_KEY
-        },
-        success: function(data) {
-          // Clear previous results
-          $("#catContainer").empty();
-  
-          // Loop through each cat image data
-          $.each(data, function(index, cat) {
-            var imageId = cat.reference_image_id;
-            $.ajax({
-                url: 'https://api.thecatapi.com/v1/images/' + imageId,
-                method: 'GET',
-                success: function(imageData)
-                { var catFact = cat.description;
-                $("#catContainer").append(`
-                  <div class="catInfo">
-                    <img src="${imageData.url}" alt="Cat Image" height='150' width='150'>
-                    <p><strong>Name:</strong> ${cat.name}</p>
-                    <p><strong>Fact:</strong> ${catFact}</p>
-                  </div>
-                `); }
-            });
-          });
-        },
-        error: function() {
-          $("#catContainer").html("<p>Failed to fetch cat images.</p>");
-        }
-      });
+const statusText = document.getElementById("status");
+const catContainer = document.getElementById("catContainer");
+const loadButton = document.getElementById("getCatButton");
+
+function updateStatus(message) {
+  statusText.textContent = message;
+}
+
+function createCatCard(cat, imageUrl) {
+  const card = document.createElement("article");
+  card.className = "fact-card";
+  card.innerHTML = `
+    <img src="${imageUrl}" alt="${cat.name} cat breed">
+    <div>
+      <h3>${cat.name}</h3>
+      <p class="muted"><strong>Temperament:</strong> ${cat.temperament || "Not available"}</p>
+      <p>${cat.description || "No description available."}</p>
+    </div>
+  `;
+  return card;
+}
+
+async function fetchBreedImage(referenceId) {
+  if (!referenceId) {
+    return "https://cdn2.thecatapi.com/images/Rhj-JsTLP.jpg";
+  }
+
+  try {
+    const response = await fetch(`https://api.thecatapi.com/v1/images/${referenceId}`);
+    if (!response.ok) {
+      return "https://cdn2.thecatapi.com/images/Rhj-JsTLP.jpg";
     }
-  
-    // Event listener for the button click
-    $("#getCatButton").click(function() {
-      getRandomCats();
-    });
-  });
+    const data = await response.json();
+    return data.url || "https://cdn2.thecatapi.com/images/Rhj-JsTLP.jpg";
+  } catch (error) {
+    return "https://cdn2.thecatapi.com/images/Rhj-JsTLP.jpg";
+  }
+}
+
+async function getRandomCats() {
+  updateStatus("Loading awesome cat facts...");
+  loadButton.disabled = true;
+  catContainer.innerHTML = "";
+
+  const page = Math.floor(Math.random() * 20);
+  const url = `https://api.thecatapi.com/v1/breeds?limit=4&page=${page}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Unable to fetch cat data");
+    }
+
+    const cats = await response.json();
+    if (!Array.isArray(cats) || !cats.length) {
+      updateStatus("No cat data available right now.");
+      return;
+    }
+
+    for (const cat of cats) {
+      const imageUrl = await fetchBreedImage(cat.reference_image_id);
+      catContainer.appendChild(createCatCard(cat, imageUrl));
+    }
+
+    updateStatus("Here are your random cat facts.");
+  } catch (error) {
+    updateStatus("Failed to fetch cat facts. Please try again.");
+  } finally {
+    loadButton.disabled = false;
+  }
+}
+
+loadButton.addEventListener("click", getRandomCats);
+getRandomCats();
   

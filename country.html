@@ -1,67 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Statlearn Tech | Countries</title>
+  <title>Country Facts Explorer</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .jumbotron {
-      margin: 10px;
-    }
-
-    .container {
-      margin-bottom: 20px;
-    }
-
-    .countryInfo {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-
-    .countryInfo img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-  </style>
 </head>
-
 <body>
-
-  <div class="jumbotron bg-dark text-white text-center">
-    <h1>Country Facts</h1>
-  </div>
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <button id="getCountryButton" class="btn btn-primary">Get Random Countries</button>
+  <nav class="site-nav">
+    <div class="container">
+      <a class="brand" href="index.html">Saurabh K. Giri</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shadi.html">Wedding</a>
+        <a href="cats.html">Cats</a>
+      </div>
     </div>
-  </div>
+  </nav>
 
-  <div id="countryContainer" class="container">
-    <!-- Country information will be inserted here -->
-  </div>
+  <header class="utility-header container">
+    <h1>Country Facts Explorer</h1>
+    <p class="muted">Get random countries with names, region, capital, and population.</p>
+  </header>
 
-  <footer class="footer mt-auto">
-    <div class="container text-center">
-      <p>Made with Lots of 💖 by SkG</p>
+  <section class="container section">
+    <div class="utility-actions">
+      <button id="getCountryButton" class="btn btn-primary" type="button">Load Random Countries</button>
     </div>
+    <p id="status" class="muted">Loading country facts...</p>
+    <div id="countryContainer" class="list-grid" aria-live="polite"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">Discover one country at a time.</div>
   </footer>
-
   <script src="countryscript.js"></script>
 </body>
-
 </html>

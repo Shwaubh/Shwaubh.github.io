@@ -404,6 +404,35 @@ a {
   opacity: 0.7;
 }
 
+.connection-banner {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #0f1d35;
+  color: #fff;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999;
+}
+
+.connection-banner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.connection-banner.offline {
+  background: #9a3412;
+}
+
+.connection-banner.online {
+  background: #166534;
+}
+
 @media (max-width: 700px) {
   .site-nav .container {
     align-items: flex-start;

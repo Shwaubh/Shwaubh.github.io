@@ -1,0 +1,21 @@
+{
+  "name": "Saurabh Kumar Giri Portfolio",
+  "short_name": "SKG Portfolio",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f4f7fc",
+  "theme_color": "#1d4ed8",
+  "description": "Portfolio, tools, and productivity apps by Saurabh Kumar Giri.",
+  "icons": [
+    {
+      "src": "img/profile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "img/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
